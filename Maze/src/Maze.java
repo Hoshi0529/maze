@@ -1,6 +1,7 @@
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Maze{
+public class Maze implements KeyListener{
 
 	    private int pointX; //ブロックを置いたり消したりする目印。
 	    private int pointY;
@@ -160,9 +161,23 @@ public class Maze{
 	            isAbleContinueDig();
 	            show();
 	            getMaze();
-	            GameFrame.spacePressed =true;
+	            GameMain.spacePressed =true;
 	        }
 	    }
+
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO 自動生成されたメソッド・スタブ
+			
+		}
+
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO 自動生成されたメソッド・スタブ
+			
+		}
 	    
 	    
 	    
