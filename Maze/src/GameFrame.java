@@ -1,10 +1,6 @@
-
-
 public class GameFrame{
 		public static void main(String[] args){
-			new GameMain();
-			
+			MyFrame frame = new GameMain();
+			frame.setSize(310,335);
 	    }
-	
 }
-
