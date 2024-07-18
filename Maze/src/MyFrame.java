@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
@@ -43,28 +42,10 @@ public class MyFrame extends Frame implements Runnable {
 				System.exit(1);
 			}
 		});
-		//autoSave();
 	}
 	public synchronized void saveImage(File dst) throws IOException {
 		ImageIO.write(im, "png", dst);
 	}
-	/*public void autoSave() {
-		final Object t=this;
-		Runnable r = new Runnable() {
-			public void run() {
-				try {
-					for (int i=1 ; i<=5; i++) {
-						Thread.sleep(1000);
-						String pathname = "screenshots"+File.separator+t.getClass().getSimpleName()+"_"+new TDate().toString("yyMMdd_hhmmss")+"_"+i+".png";
-						saveImage(new File(pathname));
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		};
-		new Thread(r).run();
-	}*/
 	/**
 	 * 最初にpaintが呼ばれたときに、スレッドを動かしてアニメーションを制御する
 	 */
@@ -142,7 +123,6 @@ public class MyFrame extends Frame implements Runnable {
 		try {
 			fillRect(0,0,0,0);// ダミー：これがないとXPで最後の四角形がちらつく
 			Thread.sleep((int)(time*1000));
-
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -154,7 +134,6 @@ public class MyFrame extends Frame implements Runnable {
 	}
 	public synchronized void fillOval(double x, double y, double w, double h) {
 		fillOval((int)x,(int)y,(int)w,(int)h);
-
 	}
 	public synchronized void drawString(String str, int x,int y, int size) {
 		Graphics g=getImageGraphics();
@@ -171,5 +150,4 @@ public class MyFrame extends Frame implements Runnable {
 			g.drawString(str, x, y);
 		}
 	}
-
 }

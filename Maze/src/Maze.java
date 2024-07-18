@@ -7,7 +7,6 @@ public class Maze implements KeyListener{
 	    private int pointY;
 	    private int width; //横幅と高さ。
 	    private int height;
-	  
 	    private byte[][] map; //マップを格納する配列
 	    public Maze(int w, int h) {
 	    	width = w;
@@ -19,15 +18,11 @@ public class Maze implements KeyListener{
 	            System.out.println("縦・横共に5以上の奇数で作成してください。");
 	        }
 	    }
-
-
 		int randomPos(int muki) { //x,y座標共に奇数なランダムな座標を返す
 	        int result = 1 + 2 * (int) Math.floor((Math.random() * (muki - 1)) / 2);
 	        return result;
 	    }
-
 	    private void make() { //マップを作成する
-
 	        pointX = randomPos(width);
 	        pointY = randomPos(height);
 
@@ -40,7 +35,6 @@ public class Maze implements KeyListener{
 	        dig();
 
 	    }
-
 	    private void dig() {
 	        if (isAbleContinueDig() && map[pointX][pointY] == 0) {
 	            map[pointX][pointY] = 0;
@@ -88,7 +82,6 @@ public class Maze implements KeyListener{
 	        }
 
 	    }
-
 	    private boolean isAbleDig() { //まだ掘るところがあるか確かめる
 	        boolean result;
 	        int cnt = 0;
@@ -109,7 +102,6 @@ public class Maze implements KeyListener{
 	        }
 	        return result;
 	    }
-
 	    private boolean isAbleContinueDig() {//四方に掘れるところが残っているかどうか判断する
 
 	        if (pointY != 1) {
@@ -134,7 +126,6 @@ public class Maze implements KeyListener{
 	        }
 	        return false;
 	    }
-
 	    public void show() {
 	        for (int y = 0; y < map[0].length; y++) {
 	            System.out.println("");
@@ -151,8 +142,6 @@ public class Maze implements KeyListener{
 	    public byte[][] getMaze() {
 	        return map;
 	    }
-         
-	   
 	    public void keyPressed(KeyEvent e) {
 	        if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 	            System.out.println("スペースキーが押されました。迷路を再生成します。");
@@ -164,25 +153,12 @@ public class Maze implements KeyListener{
 	            GameMain.spacePressed =true;
 	        }
 	    }
-
-
 		@Override
 		public void keyTyped(KeyEvent e) {
 			// TODO 自動生成されたメソッド・スタブ
-			
 		}
-
-
 		@Override
 		public void keyReleased(KeyEvent e) {
 			// TODO 自動生成されたメソッド・スタブ
-			
 		}
-	    
-	    
-	    
-	    
-	    
-	    
-	    
 }

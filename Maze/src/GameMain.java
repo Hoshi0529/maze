@@ -1,5 +1,4 @@
 public class GameMain extends MyFrame {
- 
 	Maze maze;
 	static float CELL_SIZE = 20;
  
@@ -7,18 +6,15 @@ public class GameMain extends MyFrame {
 		//new MyFrame();
 		maze = new Maze(15, 15);
 		addKeyListener(maze);
- 
 		drawMaze();
 		while (true) {
 			if (GameMain.spacePressed) {
 				drawMaze();
 				GameMain.spacePressed = false;
 			}
- 
 			sleep(0.1);
 		}
 	}
- 
 	public void drawMaze() {
 		byte[][] map = maze.getMaze();
 		clear();
@@ -37,7 +33,5 @@ public class GameMain extends MyFrame {
 			}
 		}
 	}
- 
 	static boolean spacePressed;
- 
 }
